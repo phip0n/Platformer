@@ -21,13 +21,9 @@ public class Rotator : MonoBehaviour
 
     private void Rotate()
     {
-        if (_rigidBody.velocity.x > 0)
+        if (_rigidBody.velocity.x != 0)
         {
-            transform.localScale = new Vector3(_scale.x, _scale.y, _scale.z);
-        }
-        else if (_rigidBody.velocity.x < 0)
-        {
-            transform.localScale = new Vector3(-_scale.x, _scale.y, _scale.z);
+            transform.localScale = new Vector3(Mathf.Sign(_rigidBody.velocity.x) * _scale.x, _scale.y, _scale.z);
         }
     }
 }

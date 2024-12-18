@@ -7,6 +7,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private const string Disappear = nameof(Disappear);
+
     [SerializeField] private float _disappearTime;
     private Animator _animator;
     private bool _isActive;

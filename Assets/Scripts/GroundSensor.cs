@@ -9,7 +9,7 @@ public class GroundSensor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.isTrigger == false)
+        if (collision.GetComponent<Ground>())
         {
             _collaidersCount++;
         }
@@ -17,7 +17,7 @@ public class GroundSensor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.isTrigger == false)
+        if (other.GetComponent<Ground>())
         {
             _collaidersCount--;
         }

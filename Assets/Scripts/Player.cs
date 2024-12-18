@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
@@ -31,17 +32,8 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _velosity = _rigidBody.velocity;
-        _velosity.x = Input.GetAxisRaw("Horizontal") * _speed;
-
-        if (_groundSensor.isOnGraund)
-        {
-            _animator.SetBool(PlayerAnimatorData.IsFallingID, false);
-        }
-        else
-        {
-            _animator.SetBool(PlayerAnimatorData.IsFallingID, true);
-        }
-
+        _velosity.x = Input.GetAxisRaw(InputData.Horizontal) * _speed;
+        _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGraund);
         _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_rigidBody.velocity.x));
 
         if (Input.GetKey(KeyCode.Space) && _groundSensor.isOnGraund)

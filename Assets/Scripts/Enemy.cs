@@ -6,9 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float _speed;
-    [SerializeField] float _minDistanseSqr;
-    [SerializeField] Vector2[] _wayPoints;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _minDistanseSqr;
+    [SerializeField] private Vector2[] _wayPoints;
     private int _currentPointIndex = 0;
     private Rigidbody2D _rigidBody;
 
