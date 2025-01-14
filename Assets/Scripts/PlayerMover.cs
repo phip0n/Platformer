@@ -5,12 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Animator))]
-public class Player : MonoBehaviour
+public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private GroundSensor _groundSensor;
     [SerializeField] private Animator _animator;
+
     private Rigidbody2D _rigidBody;
     private Vector2 _velosity;
 
@@ -19,14 +20,6 @@ public class Player : MonoBehaviour
         _velosity = new Vector2(0, 0);
         _rigidBody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.TryGetComponent(out Coin coin))
-        {
-            coin.InteractWithPlayer();
-        }
     }
 
     private void Update()
