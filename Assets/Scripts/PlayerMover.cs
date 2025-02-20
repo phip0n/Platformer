@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -21,30 +19,34 @@ public class PlayerMover : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void FixedUpdate()
+    {
+        _rigidBody.velocity = _velosity;
+    }
+
     private void Update()
     {
         _velosity = _rigidBody.velocity;
-        _velosity.x = Input.GetAxisRaw(InputData.Horizontal) * _speed;
-        _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGraund);
+        //_velosity.x = Input.GetAxisRaw(InputData.Horizontal) * _speed;
+        _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGround);
         _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_rigidBody.velocity.x));
 
-        if (Input.GetKey(KeyCode.Space) && _groundSensor.isOnGraund)
+        /*if (Input.GetKey(KeyCode.Space) && _groundSensor.isOnGround)
+        {
+            _velosity.y = _jumpSpeed;
+        }*/
+    }
+
+    public void SetHorizontalSpeed(float horizontalRaw)
+    {
+        _velosity.x = horizontalRaw * _speed;
+    }
+
+    public void Jump()
+    {
+        if (_groundSensor.isOnGround)
         {
             _velosity.y = _jumpSpeed;
         }
-
-        _rigidBody.velocity = _velosity;
     }
-}
-
-public static class PlayerAnimatorData
-{
-    static PlayerAnimatorData()
-    {
-        SpeedID = Animator.StringToHash("Speed");
-        IsFallingID = Animator.StringToHash("IsFalling");
-    }
-
-    public static int SpeedID { get; private set; }
-    public static int IsFallingID { get; private set; }
 }

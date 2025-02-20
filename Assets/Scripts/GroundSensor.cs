@@ -5,7 +5,7 @@ public class GroundSensor : MonoBehaviour
 {
     private int _collaidersCount = 0;
 
-    public bool isOnGraund => _collaidersCount > 0;
+    public bool isOnGround => _collaidersCount > 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
