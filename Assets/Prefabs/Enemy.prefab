@@ -158,7 +158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
+  _velocity: {x: 0, y: 0}
   _minDistanseSqr: 0.1
+  _wayPoints: []
 --- !u!114 &8376643300616405552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf4ee70a7877c74698a0cc0ccd52902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transform: {fileID: 573793939407227652}
 --- !u!50 &6217881317672645718
 Rigidbody2D:
   serializedVersion: 4

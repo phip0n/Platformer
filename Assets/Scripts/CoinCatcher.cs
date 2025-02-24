@@ -12,7 +12,7 @@ public class CoinCatcher : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Coin coin) && coin.IsActive)
         {
-            coin.InteractWithPlayer();
+            coin.Interact();
             _coinsCollected++;
             TakedCoin?.Invoke(_coinsCollected);
         }

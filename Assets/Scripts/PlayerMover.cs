@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
 public class PlayerMover : MonoBehaviour
 {
+    [SerializeField] private InputReader _inputReader;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private GroundSensor _groundSensor;
@@ -16,7 +16,6 @@ public class PlayerMover : MonoBehaviour
     {
         _velosity = new Vector2(0, 0);
         _rigidBody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -26,19 +25,20 @@ public class PlayerMover : MonoBehaviour
 
     private void Update()
     {
-        _velosity = _rigidBody.velocity;
-        //_velosity.x = Input.GetAxisRaw(InputData.Horizontal) * _speed;
         _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGround);
         _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_rigidBody.velocity.x));
+        _velosity = _rigidBody.velocity;
+        _velosity.x = _inputReader.XSpedRaw * _speed;
 
-        /*if (Input.GetKey(KeyCode.Space) && _groundSensor.isOnGround)
+        if (_inputReader.IsJumpActive && _groundSensor.isOnGround)
         {
             _velosity.y = _jumpSpeed;
-        }*/
+        }
     }
 
     public void SetHorizontalSpeed(float horizontalRaw)
     {
+        _velosity = _rigidBody.velocity;
         _velosity.x = horizontalRaw * _speed;
     }
 

@@ -4,18 +4,6 @@ public class InputReader : MonoBehaviour
 {
     [SerializeField] private PlayerMover _playerMover;
 
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        _playerMover.SetHorizontalSpeed(Input.GetAxisRaw(InputData.Horizontal));
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            _playerMover.Jump();
-        }
-    }
+    public float XSpedRaw => Input.GetAxisRaw(InputData.Horizontal);
+    public bool IsJumpActive => Input.GetKey(KeyCode.Space);
 }

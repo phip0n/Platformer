@@ -4,25 +4,23 @@ using UnityEngine;
 [RequireComponent (typeof(Animator))]
 public class Coin : MonoBehaviour
 {
-    private const string Disappear = nameof(Disappear);
-
-    [SerializeField] private float _disappearTime;
+    private Animator _animator;
+    private Collider2D _collider;
 
     public bool IsActive { get; private set; } = true;
-    private Animator _animator;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        Collider2D collider = GetComponent<Collider2D>();
-        collider.isTrigger = true;
+        _collider = GetComponent<Collider2D>();
+        _collider.isTrigger = true;
     }
 
-    public void InteractWithPlayer()
+    public void Interact()
     {
         IsActive = false;
-        GetComponent<Collider2D>().enabled = false;
-        _animator.SetTrigger(Disappear);
+        _collider.enabled = false;
+        _animator.SetTrigger(CoinAnimatorData.DisappearID);
     }
 
     private void Deactivate()

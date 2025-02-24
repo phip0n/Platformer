@@ -3,12 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Rotator : MonoBehaviour
 {
-    protected Rigidbody2D _rigidBody;
-    private Vector3 _scale;
+    [SerializeField] private Transform _transform;
+
+    private Rigidbody2D _rigidBody;
 
     private void Awake()
     {
-        _scale = transform.localScale;
         _rigidBody = GetComponent<Rigidbody2D>();
     }
 
@@ -21,7 +21,7 @@ public class Rotator : MonoBehaviour
     {
         if (_rigidBody.velocity.x != 0)
         {
-            transform.localScale = new Vector3(Mathf.Sign(_rigidBody.velocity.x) * _scale.x, _scale.y, _scale.z);
+            _transform.rotation = Quaternion.LookRotation(Vector3.forward * _rigidBody.velocity.x, transform.up);
         }
     }
 }

@@ -7,12 +7,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _minDistanseSqr;
     [SerializeField] private Vector2[] _wayPoints;
 
+    private Vector2 _velocity;
     private int _currentPointIndex = 0;
     private Rigidbody2D _rigidBody;
 
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidBody.velocity = _velocity;
     }
 
     private void Update()
@@ -23,12 +29,11 @@ public class Enemy : MonoBehaviour
 
             if (direction.sqrMagnitude > _minDistanseSqr)
             {
-                Vector2 speed = direction.normalized * _speed;
-                _rigidBody.velocity = speed;
+                _velocity = direction.normalized * _speed;
             }
             else
             {
-                _rigidBody.velocity = Vector2.zero;
+                _velocity = Vector2.zero;
                 _currentPointIndex = ++_currentPointIndex % _wayPoints.Length;
             }
         }
