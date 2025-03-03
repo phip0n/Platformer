@@ -10,7 +10,10 @@ public class CoinsCounter : MonoBehaviour
     private void Awake()
     {
         _textMesh= GetComponent<TextMeshProUGUI>();
+    }
 
+    private void OnEnable()
+    {
         if (_coinCatcher != null)
         {
             _coinCatcher.TakedCoin += SetCounter;
@@ -20,5 +23,10 @@ public class CoinsCounter : MonoBehaviour
     private void SetCounter(int value)
     {
         _textMesh.SetText(value.ToString());
+    }
+
+    private void OnDisable()
+    {
+        _coinCatcher.TakedCoin -= SetCounter;
     }
 }

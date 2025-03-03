@@ -35,18 +35,4 @@ public class PlayerMover : MonoBehaviour
             _velosity.y = _jumpSpeed;
         }
     }
-
-    public void SetHorizontalSpeed(float horizontalRaw)
-    {
-        _velosity = _rigidBody.velocity;
-        _velosity.x = horizontalRaw * _speed;
-    }
-
-    public void Jump()
-    {
-        if (_groundSensor.isOnGround)
-        {
-            _velosity.y = _jumpSpeed;
-        }
-    }
 }

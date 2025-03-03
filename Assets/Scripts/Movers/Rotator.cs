@@ -6,6 +6,8 @@ public class Rotator : MonoBehaviour
     [SerializeField] private Transform _transform;
 
     private Rigidbody2D _rigidBody;
+    private Quaternion _leftRotation = Quaternion.LookRotation(-Vector3.forward, Vector3.up);
+    private Quaternion _rightRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
 
     private void Awake()
     {
@@ -21,7 +23,7 @@ public class Rotator : MonoBehaviour
     {
         if (_rigidBody.velocity.x != 0)
         {
-            _transform.rotation = Quaternion.LookRotation(Vector3.forward * _rigidBody.velocity.x, transform.up);
+            _transform.rotation = _rigidBody.velocity.x > 0 ? _rightRotation : _leftRotation;
         }
     }
 }

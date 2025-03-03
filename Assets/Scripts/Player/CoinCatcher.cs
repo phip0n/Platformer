@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEngine.Events;
+using System;
 
 [RequireComponent(typeof(Collider2D))]
 public class CoinCatcher : MonoBehaviour
 {
     private int _coinsCollected = 0;
 
-    public event UnityAction<int> TakedCoin;
+    public event Action<int> TakedCoin;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
