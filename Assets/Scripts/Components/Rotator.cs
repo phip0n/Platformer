@@ -21,9 +21,9 @@ public class Rotator : MonoBehaviour
 
     private void Rotate()
     {
-        if (_rigidBody.velocity.x != 0)
+        if (_rigidBody.linearVelocity.x != 0)
         {
-            _transform.rotation = _rigidBody.velocity.x > 0 ? _rightRotation : _leftRotation;
+            _transform.rotation = _rigidBody.linearVelocity.x > 0 ? _rightRotation : _leftRotation;
         }
     }
 }

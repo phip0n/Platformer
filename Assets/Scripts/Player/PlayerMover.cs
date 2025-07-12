@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMover : MonoBehaviour
+public class PlayerMover : DyingComponent
 {
     [SerializeField] private InputReader _inputReader;
     [SerializeField] private float _speed;
@@ -20,19 +20,28 @@ public class PlayerMover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidBody.velocity = _velosity;
+        _rigidBody.linearVelocity = _velosity;
     }
 
     private void Update()
     {
-        _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGround);
-        _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_rigidBody.velocity.x));
-        _velosity = _rigidBody.velocity;
-        _velosity.x = _inputReader.XSpedRaw * _speed;
-
-        if (_inputReader.IsJumpActive && _groundSensor.isOnGround)
+        if (_isAlive)
         {
-            _velosity.y = _jumpSpeed;
+            _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGround);
+            _velosity = _rigidBody.linearVelocity;
+            _velosity.x = _inputReader.XSpedRaw * _speed;
+            _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_velosity.x));
+
+            if (_inputReader.IsJumpActive && _groundSensor.isOnGround)
+            {
+                _velosity.y = _jumpSpeed;
+            }
         }
+    }
+
+    public override void StartDying()
+    {
+        base.StartDying();
+        _velosity = Physics2D.gravity * Time.deltaTime;
     }
 }

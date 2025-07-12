@@ -1,8 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-[RequireComponent (typeof(Animator))]
-public class Coin : MonoBehaviour
+public class Item : MonoBehaviour
 {
     private Animator _animator;
     private Collider2D _collider;
