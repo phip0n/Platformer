@@ -1,11 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class EnemyMoover : DyingComponent
+public class EnemyMover : DyingComponent
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _minDistanseSqr;
     [SerializeField] private Vector2[] _wayPoints;
+    [SerializeField] Rotator _rotator;
 
     private bool _isChasing = false;
     private Transform _player;
@@ -35,10 +36,10 @@ public class EnemyMoover : DyingComponent
             Move();
     }
 
-    public void StartChase(PlayerHp playerHp)
+    public void StartChase(Player player)
     {
         _isChasing = true;
-        _player = playerHp.gameObject.transform;
+        _player = player.gameObject.transform;
     }
 
     public void StopChase()
@@ -68,5 +69,7 @@ public class EnemyMoover : DyingComponent
             if (_isChasing == false)
                 _currentPointIndex = ++_currentPointIndex % _wayPoints.Length;
         }
+
+        _rotator.Rotate(_rigidBody.linearVelocity.x);
     }
 }

@@ -7,10 +7,12 @@ public class PlayerMover : DyingComponent
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpSpeed;
     [SerializeField] private GroundSensor _groundSensor;
-    [SerializeField] private Animator _animator;
+    [SerializeField] Rotator _rotator;
 
     private Rigidbody2D _rigidBody;
     private Vector2 _velosity;
+
+    public float Speed { get; private set; } = 0;
 
     private void Awake()
     {
@@ -27,10 +29,10 @@ public class PlayerMover : DyingComponent
     {
         if (_isAlive)
         {
-            _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGround);
             _velosity = _rigidBody.linearVelocity;
-            _velosity.x = _inputReader.XSpedRaw * _speed;
-            _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_velosity.x));
+            Speed = _inputReader.XSpedRaw * _speed;
+            _velosity.x = Speed;
+            _rotator.Rotate(Speed);
 
             if (_inputReader.IsJumpActive && _groundSensor.isOnGround)
             {

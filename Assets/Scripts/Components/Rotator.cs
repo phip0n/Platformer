@@ -5,25 +5,18 @@ public class Rotator : MonoBehaviour
 {
     [SerializeField] private Transform _transform;
 
-    private Rigidbody2D _rigidBody;
     private Quaternion _leftRotation = Quaternion.LookRotation(-Vector3.forward, Vector3.up);
     private Quaternion _rightRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
 
     private void Awake()
     {
-        _rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    public void Rotate(float xSpeed)
     {
-        Rotate();
-    }
-
-    private void Rotate()
-    {
-        if (_rigidBody.linearVelocity.x != 0)
+        if (xSpeed != 0)
         {
-            _transform.rotation = _rigidBody.linearVelocity.x > 0 ? _rightRotation : _leftRotation;
+            _transform.rotation = xSpeed > 0 ? _rightRotation : _leftRotation;
         }
     }
 }

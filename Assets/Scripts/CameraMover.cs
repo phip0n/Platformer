@@ -6,12 +6,7 @@ public class CameraMover : MonoBehaviour
 
     private Vector3 position;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
+    private void LateUpdate()
     {
         if (_player != null)
         {

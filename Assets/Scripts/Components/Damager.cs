@@ -9,18 +9,18 @@ public class Damager: DyingComponent
     [SerializeField] private float _delay = 1;
 
     private bool _isReady = true;
-    private List<Hp> _targets;
+    private List<Health> _targets;
     private WaitForSeconds _delayTime;
 
     private void Awake()
     {
         _delayTime = new WaitForSeconds(_delay);
-        _targets = new List<Hp>();
+        _targets = new List<Health>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Hp>(out Hp hp) && hp.TeamID != _teamID)
+        if (collision.TryGetComponent<Health>(out Health hp) && hp.TeamID != _teamID)
         {
             _targets.Add(hp);
 
@@ -31,7 +31,7 @@ public class Damager: DyingComponent
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Hp>(out Hp hp))
+        if (collision.TryGetComponent<Health>(out Health hp))
         {
             _targets.Remove(hp);
         }
@@ -39,7 +39,7 @@ public class Damager: DyingComponent
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Hp>(out Hp hp))
+        if (collision.gameObject.TryGetComponent<Health>(out Health hp))
         {
             _targets.Remove(hp);;
         }
@@ -51,7 +51,7 @@ public class Damager: DyingComponent
         {
             _isReady = false;
 
-            foreach (Hp hp in _targets)
+            foreach (Health hp in _targets)
             {
                 hp.TakeDamage(_damage);
             }

@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Hp : MonoBehaviour
+public class Health : MonoBehaviour
 {
-    [SerializeField] protected Animator _animator;
+    //[SerializeField] protected Animator _animator;
     [SerializeField] private int _maxHp = 50;
     [SerializeField] private int _teamID;
     [SerializeField] private List<DyingComponent> _DyingComponents;
@@ -20,22 +20,28 @@ public abstract class Hp : MonoBehaviour
         Init();
     }
 
-    public void Heal(int hp)
+    public void Heal(int points)
     {
-        Points += hp;
+        if (points > 0)
+        {
+            Points += points;
 
-        if (Points > _maxHp)
-            Points = _maxHp;
+            if (Points > _maxHp)
+                Points = _maxHp;
+        }
     }
 
     public void TakeDamage(int damage)
     {
-        Points -= damage;
-
-        if (Points <= 0 && _isAlive)
+        if (damage > 0)
         {
-            _isAlive = false;
-            StartDying();
+            Points -= damage;
+
+            if (Points <= 0 && _isAlive)
+            {
+                _isAlive = false;
+                StartDying();
+            }
         }
     }
 

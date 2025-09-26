@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5063181013610040358}
-  - component: {fileID: 6464341866290510666}
   - component: {fileID: 5696570787227332353}
+  - component: {fileID: 2108295689562899546}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -33,24 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 573793939407227652}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6464341866290510666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124939593062969776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed51a92b2aa6b142b073ada8ee9124d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 4379849345060654768}
-  _maxHp: 30
-  _teamID: 1
-  _DyingComponents:
-  - {fileID: 6167506119440162367}
-  - {fileID: 1425189525402411604}
 --- !u!58 &5696570787227332353
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -87,6 +69,24 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &2108295689562899546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124939593062969776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34227b35421e67d44b7b1650f6cdfc41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHp: 30
+  _teamID: 1
+  _DyingComponents:
+  - {fileID: 6167506119440162367}
+  - {fileID: 1425189525402411604}
+  - {fileID: 9089283171740797737}
 --- !u!1 &2953721787384536228
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 573793939407227652}
   - component: {fileID: 8775785019084467291}
   - component: {fileID: 4379849345060654768}
+  - component: {fileID: 9089283171740797737}
   - component: {fileID: 1425189525402411604}
   - component: {fileID: 8376643300616405552}
   - component: {fileID: 2524129954376180822}
@@ -204,6 +205,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9089283171740797737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953721787384536228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2723b77bc652e48b8af94642e7c9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 4379849345060654768}
 --- !u!114 &1425189525402411604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +233,7 @@ MonoBehaviour:
   _speed: 2
   _minDistanseSqr: 0.1
   _wayPoints: []
+  _rotator: {fileID: 8376643300616405552}
 --- !u!114 &8376643300616405552
 MonoBehaviour:
   m_ObjectHideFlags: 0

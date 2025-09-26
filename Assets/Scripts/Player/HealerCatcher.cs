@@ -4,7 +4,7 @@ using System;
 [RequireComponent(typeof(Collider2D))]
 public class HealthCatcher : MonoBehaviour
 {
-    [SerializeField] private Hp _health;
+    [SerializeField] private Health _health;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
