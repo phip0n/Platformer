@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    //[SerializeField] protected Animator _animator;
     [SerializeField] private int _maxHp = 50;
     [SerializeField] private int _teamID;
     [SerializeField] private List<DyingComponent> _DyingComponents;
