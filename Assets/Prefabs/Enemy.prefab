@@ -84,7 +84,7 @@ MonoBehaviour:
   _maxHp: 30
   _teamID: 1
   _DyingComponents:
-  - {fileID: 6167506119440162367}
+  - {fileID: 5752822521498243473}
   - {fileID: 1425189525402411604}
   - {fileID: 9089283171740797737}
 --- !u!1 &2953721787384536228
@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8663381482436306077}
   - component: {fileID: 6875305540028500435}
-  - component: {fileID: 6167506119440162367}
+  - component: {fileID: 5752822521498243473}
   m_Layer: 0
   m_Name: Damager
   m_TagString: Untagged
@@ -355,7 +355,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &6167506119440162367
+--- !u!114 &5752822521498243473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5277938423121089962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed6b619e7a8d6047b66b001cb58b1b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 20226d26dacbe754f87244535d4b311a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _teamID: 1
@@ -452,3 +452,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 1425189525402411604}
+  _cooldown: 0.1
+  _range: 5
+  _playerLayer: 5

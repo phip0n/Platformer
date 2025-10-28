@@ -113610,11 +113610,11 @@ GameObject:
   m_Component:
   - component: {fileID: 834315156}
   - component: {fileID: 834315159}
-  - component: {fileID: 834315158}
-  - component: {fileID: 834315157}
   - component: {fileID: 834315161}
   - component: {fileID: 834315162}
-  m_Layer: 0
+  - component: {fileID: 834315164}
+  - component: {fileID: 834315163}
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113636,31 +113636,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1602381876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &834315157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834315155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63bbfa27dafe77748bf4276b2aa75f38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &834315158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834315155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1894a3727dc5e994fab521e7fca3d8ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: {fileID: 834315162}
 --- !u!70 &834315159
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -113710,6 +113685,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef4fb21433b7be4ea73c41a5602405e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 834315162}
+  _wallet: {fileID: 834315163}
+  _damager: {fileID: 1673981376}
+  _inputReader: {fileID: 1542627283}
+  _animator: {fileID: 1602381882}
 --- !u!114 &834315162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113728,6 +113708,31 @@ MonoBehaviour:
   - {fileID: 1602381883}
   - {fileID: 1673981376}
   - {fileID: 1602381882}
+--- !u!114 &834315163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834315155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca0c402435cd7d42954e5ab629a3102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &834315164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834315155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa82e3ae16a6ddb4cbbb7937ceb02630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 834315161}
 --- !u!1001 &852611668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113826,6 +113831,7 @@ GameObject:
   - component: {fileID: 873714679}
   - component: {fileID: 873714678}
   - component: {fileID: 873714680}
+  - component: {fileID: 873714681}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -113920,6 +113926,103 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1602381876}
+--- !u!82 &873714681
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873714676}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: c141832e895900a459a06cd0c3d7fdb0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &894533707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115158,7 +115261,7 @@ Transform:
   m_GameObject: {fileID: 1673981374}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.142, z: 0}
+  m_LocalPosition: {x: -0.345, y: 0.03, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -115177,8 +115280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _teamID: 0
-  _damage: 11
-  _delay: 1
+  _damage: 50
+  _delay: 0.2
+  _range: 2
 --- !u!58 &1673981377
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115214,7 +115318,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 0.32
 --- !u!1001 &1773539141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116057,7 +116161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b09bff65586aa42b557bf9a191658b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinCatcher: {fileID: 834315157}
+  _wallet: {fileID: 834315163}
 --- !u!102 &2081916377
 TextMesh:
   serializedVersion: 3

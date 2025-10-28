@@ -37,12 +37,16 @@ public class Health : MonoBehaviour
             if (Points <= 0 && _isAlive)
             {
                 _isAlive = false;
+
+                if (Points < 0)
+                    Points = 0;
+
                 StartDying();
             }
         }
     }
 
-    protected virtual void StartDying()
+    private void StartDying()
     {
         foreach (var component in _DyingComponents)
         {
@@ -50,7 +54,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    protected virtual void Init()
+    private void Init()
     {
         Points = _maxHp;
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class CoinsCounter : MonoBehaviour
 {
-    [SerializeField] private CoinCatcher _coinCatcher;
+    [SerializeField] private Wallet _wallet;
     private TextMeshProUGUI _textMesh;
 
     private void Awake()
@@ -14,19 +14,19 @@ public class CoinsCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_coinCatcher != null)
+        if (_wallet != null)
         {
-            _coinCatcher.TakedCoin += SetCounter;
+            _wallet.TakedCoins += SetCounter;
         }
+    }
+
+    private void OnDisable()
+    {
+        _wallet.TakedCoins -= SetCounter;
     }
 
     private void SetCounter(int value)
     {
         _textMesh.SetText(value.ToString());
-    }
-
-    private void OnDisable()
-    {
-        _coinCatcher.TakedCoin -= SetCounter;
     }
 }

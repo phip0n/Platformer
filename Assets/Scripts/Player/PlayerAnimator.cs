@@ -10,11 +10,16 @@ public class PlayerAnimator : DyingComponent
 
     private void Update()
     {
-        if (_isAlive)
+        if (_isAlive && _animator != null)
         {
             _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGround);
             _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_mover.Speed));
         }
+    }
+
+    public void Attack()
+    {
+        _animator.SetTrigger(PlayerAnimatorData.AttackID);
     }
 
     public override void StartDying()

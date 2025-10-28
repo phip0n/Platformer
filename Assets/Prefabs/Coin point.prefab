@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4979114935264963975}
   - component: {fileID: 4423405107513120786}
   - component: {fileID: 4601414079410317633}
+  - component: {fileID: 4988545301953867646}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -84,6 +85,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -121,7 +125,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &4979114935264963975
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -135,6 +139,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -148,6 +153,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4985255856380273301}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -171,9 +177,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
   m_Radius: 0.5
 --- !u!114 &4601414079410317633
 MonoBehaviour:
@@ -187,4 +193,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45934ed748078bb4baa9187efa2f9634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _disappearTime: 0
+  _coinsNumber: 1
+--- !u!114 &4988545301953867646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985255856380273301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7673a99ef7450024ca7528defbd26744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

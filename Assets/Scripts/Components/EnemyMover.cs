@@ -36,10 +36,10 @@ public class EnemyMover : DyingComponent
             Move();
     }
 
-    public void StartChase(Player player)
+    public void StartChase(Transform player)
     {
         _isChasing = true;
-        _player = player.gameObject.transform;
+        _player = player;
     }
 
     public void StopChase()
