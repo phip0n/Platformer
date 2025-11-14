@@ -5,23 +5,15 @@ public class EnemyMover : DyingComponent
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _minDistanseSqr;
-    [SerializeField] private Vector2[] _wayPoints;
     [SerializeField] Rotator _rotator;
 
-    private bool _isChasing = false;
-    private Transform _player;
+    private Vector2 _target;
     private Vector2 _velocity;
-    private int _currentPointIndex = 0;
     private Rigidbody2D _rigidBody;
 
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
-
-        if (_wayPoints == null)
-        {
-            _wayPoints = new Vector2[] {new Vector2(transform.position.x, transform.position.y)};
-        }
     }
 
     private void FixedUpdate()
@@ -36,27 +28,19 @@ public class EnemyMover : DyingComponent
             Move();
     }
 
-    public void StartChase(Transform player)
+    public void SetTarget(Vector2 target)
     {
-        _isChasing = true;
-        _player = player;
-    }
-
-    public void StopChase()
-    {
-        _isChasing = false;
+        _target = target;
     }
 
     public override void StartDying()
     {
         base.StartDying();
-        _velocity = new Vector2(0, -_speed);
     }
 
     private void Move()
     {
-        Vector2 target = _isChasing ? new Vector2(_player.position.x, _player.position.y) : _wayPoints[_currentPointIndex];
-        Vector2 direction = target - new Vector2(transform.position.x, transform.position.y);
+        Vector2 direction = _target - new Vector2(transform.position.x, transform.position.y);
 
         if (direction.sqrMagnitude > _minDistanseSqr)
         {
@@ -65,11 +49,9 @@ public class EnemyMover : DyingComponent
         else
         {
             _velocity = Vector2.zero;
-
-            if (_isChasing == false)
-                _currentPointIndex = ++_currentPointIndex % _wayPoints.Length;
         }
 
-        _rotator.Rotate(_rigidBody.linearVelocity.x);
+        if (_rotator != null)
+            _rotator.Rotate(_rigidBody.linearVelocity.x);
     }
 }

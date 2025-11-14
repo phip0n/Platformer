@@ -1,7 +1,5 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Collider2D))]
@@ -37,10 +35,5 @@ public class Loot : MonoBehaviour
         }
 
         _animator.SetTrigger(CoinAnimatorData.DisappearID);
-    }
-
-    private void Deactivate()
-    {
-        gameObject.SetActive(false);
     }
 }

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class Rotator : MonoBehaviour
 {
     [SerializeField] private Transform _transform;

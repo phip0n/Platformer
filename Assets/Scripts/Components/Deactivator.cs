@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Deactivator : MonoBehaviour
 {
     public void Deactivate()
     {

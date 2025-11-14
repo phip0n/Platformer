@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 573793939407227652}
   - component: {fileID: 8775785019084467291}
   - component: {fileID: 4379849345060654768}
+  - component: {fileID: 1564596957723335971}
+  - component: {fileID: 8968663100123498348}
   - component: {fileID: 9089283171740797737}
   - component: {fileID: 1425189525402411604}
   - component: {fileID: 8376643300616405552}
@@ -205,6 +207,35 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1564596957723335971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953721787384536228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4154b17e6295a4c9837475ad711174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detector: {fileID: 4587919695452681434}
+  _enemyMover: {fileID: 1425189525402411604}
+  _patroller: {fileID: 8968663100123498348}
+--- !u!114 &8968663100123498348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953721787384536228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f090fcd54234c2e4fb3c164a2e2db421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wayPoints: []
+  _minDistanseSqr: 0.1
 --- !u!114 &9089283171740797737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 2
   _minDistanseSqr: 0.1
-  _wayPoints: []
   _rotator: {fileID: 8376643300616405552}
 --- !u!114 &8376643300616405552
 MonoBehaviour:
@@ -451,7 +481,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c378198b72467924c991c805ecd09e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 1425189525402411604}
-  _cooldown: 0.1
-  _range: 5
-  _playerLayer: 5

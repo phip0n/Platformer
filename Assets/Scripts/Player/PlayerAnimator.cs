@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerAnimator : DyingComponent
@@ -12,19 +11,25 @@ public class PlayerAnimator : DyingComponent
     {
         if (_isAlive && _animator != null)
         {
-            _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGround);
-            _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_mover.Speed));
+            if (_groundSensor != null)
+                _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGround);
+
+            if (_mover != null)
+                _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_mover.Speed));
         }
     }
 
     public void Attack()
     {
-        _animator.SetTrigger(PlayerAnimatorData.AttackID);
+        if (_animator != null)
+            _animator.SetTrigger(PlayerAnimatorData.AttackID);
     }
 
     public override void StartDying()
     {
         base.StartDying();
-        _animator.SetTrigger(PlayerAnimatorData.DeathID);
+
+        if (_animator != null)
+            _animator.SetTrigger(PlayerAnimatorData.DeathID);
     }
 }

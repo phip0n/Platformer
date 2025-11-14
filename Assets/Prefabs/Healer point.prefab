@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5074975766224926566}
   - component: {fileID: 8755833244804855416}
   - component: {fileID: 3791568206379760771}
+  - component: {fileID: 5610659355532166272}
+  - component: {fileID: 3854368385079266306}
   m_Layer: 0
   m_Name: Healer
   m_TagString: Untagged
@@ -161,6 +163,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 30
+--- !u!114 &5610659355532166272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507548984119839432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7673a99ef7450024ca7528defbd26744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3854368385079266306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507548984119839432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f1db5bc7d6c2b4c8b237f385503e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2428511440000073080
 GameObject:
   m_ObjectHideFlags: 0
