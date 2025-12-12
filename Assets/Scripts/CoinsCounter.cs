@@ -14,10 +14,7 @@ public class CoinsCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_wallet != null)
-        {
-            _wallet.TakedCoins += SetCounter;
-        }
+        _wallet.TakedCoins += SetCounter;
     }
 
     private void OnDisable()

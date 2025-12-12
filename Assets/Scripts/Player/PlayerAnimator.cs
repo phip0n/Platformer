@@ -12,7 +12,7 @@ public class PlayerAnimator : DyingComponent
         if (_isAlive && _animator != null)
         {
             if (_groundSensor != null)
-                _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.isOnGround);
+                _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.IsOnGround);
 
             if (_mover != null)
                 _animator.SetFloat(PlayerAnimatorData.SpeedID, Mathf.Abs(_mover.Speed));

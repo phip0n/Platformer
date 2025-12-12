@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int _maxHpealth = 50;
+    [SerializeField] private int _maxHealth = 50;
     [SerializeField] private int _teamID;
-    [SerializeField] private List<DyingComponent> _DyingComponents;
+    [SerializeField] private List<DyingComponent> _dyingComponents;
 
     private bool _isAlive = true;
 
-    public int MaxHealth => _maxHpealth;
+    public int MaxHealth => _maxHealth;
     public int Points { get; private set; }
     public int TeamID => _teamID;
 
@@ -27,8 +27,7 @@ public class Health : MonoBehaviour
         {
             Points += points;
 
-            if (Points > _maxHpealth)
-                Points = _maxHpealth;
+            points = Math.Clamp(points, 0, _maxHealth);
 
             HealthChanged?.Invoke();
         }
@@ -56,7 +55,7 @@ public class Health : MonoBehaviour
 
     private void StartDying()
     {
-        foreach (var component in _DyingComponents)
+        foreach (var component in _dyingComponents)
         {
             component.StartDying();
         }
@@ -64,6 +63,6 @@ public class Health : MonoBehaviour
 
     private void Init()
     {
-        Points = _maxHpealth;
+        Points = _maxHealth;
     }
 }

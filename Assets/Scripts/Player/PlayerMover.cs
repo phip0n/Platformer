@@ -34,7 +34,7 @@ public class PlayerMover : DyingComponent
             _velosity.x = Speed;
             _rotator.Rotate(Speed);
 
-            if (_inputReader.IsJumpActive && _groundSensor.isOnGround)
+            if (_inputReader.IsJumpActive && _groundSensor.IsOnGround)
             {
                 _velosity.y = _jumpSpeed;
             }

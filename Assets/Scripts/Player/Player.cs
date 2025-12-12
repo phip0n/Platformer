@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (_damager != null && _inputReader != null && _inputReader.IsAttackActive)
+        if (_inputReader.IsAttackActive)
         {
             bool isAttacking = _damager.TryAttack();
 

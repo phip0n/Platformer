@@ -23,6 +23,6 @@ public class SliderDisplay : HealthDisplay
 
     protected override void Display()
     {
-        _slider.value = (float)_health.Points / _health.MaxHealth;
+        _slider.value = (float)health.Points / health.MaxHealth;
     }
 }

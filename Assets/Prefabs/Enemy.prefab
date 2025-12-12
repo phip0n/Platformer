@@ -81,9 +81,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34227b35421e67d44b7b1650f6cdfc41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHpealth: 50
+  _maxHealth: 50
   _teamID: 1
-  _DyingComponents:
+  _dyingComponents:
   - {fileID: 7968165333189504728}
   - {fileID: 2771613273759688189}
   - {fileID: 379273014152584461}
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2447f480968998144b7a406e95a80fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SliderDisplay
-  _health: {fileID: 4323621117373774611}
+  health: {fileID: 4323621117373774611}
 --- !u!223 &565731015650526690
 Canvas:
   m_ObjectHideFlags: 0
