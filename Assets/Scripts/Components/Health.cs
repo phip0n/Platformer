@@ -1,16 +1,20 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int _maxHp = 50;
+    [SerializeField] private int _maxHpealth = 50;
     [SerializeField] private int _teamID;
     [SerializeField] private List<DyingComponent> _DyingComponents;
 
     private bool _isAlive = true;
 
+    public int MaxHealth => _maxHpealth;
     public int Points { get; private set; }
     public int TeamID => _teamID;
+
+    public event Action HealthChanged;
 
     public void Awake()
     {
@@ -23,8 +27,10 @@ public class Health : MonoBehaviour
         {
             Points += points;
 
-            if (Points > _maxHp)
-                Points = _maxHp;
+            if (Points > _maxHpealth)
+                Points = _maxHpealth;
+
+            HealthChanged?.Invoke();
         }
     }
 
@@ -43,6 +49,8 @@ public class Health : MonoBehaviour
 
                 StartDying();
             }
+
+            HealthChanged?.Invoke();
         }
     }
 
@@ -56,6 +64,6 @@ public class Health : MonoBehaviour
 
     private void Init()
     {
-        Points = _maxHp;
+        Points = _maxHpealth;
     }
 }
