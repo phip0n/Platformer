@@ -7,10 +7,6 @@ public class Rotator : MonoBehaviour
     private Quaternion _leftRotation = Quaternion.LookRotation(-Vector3.forward, Vector3.up);
     private Quaternion _rightRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
 
-    private void Awake()
-    {
-    }
-
     public void Rotate(float xSpeed)
     {
         if (xSpeed != 0)

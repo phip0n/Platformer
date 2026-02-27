@@ -47,7 +47,7 @@ public class EnemyDamager : DyingComponent
 
     private void Attack()
     {
-        if (_isAlive)
+        if (IsAlive)
         {
             _isReady = false;
 

@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     public void Heal(int health)
     {
-        _health.Heal(health);
+        _health.TakeHeal(health);
     }
 
     public void TakeCoins(int coins)

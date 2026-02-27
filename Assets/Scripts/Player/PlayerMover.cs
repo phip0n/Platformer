@@ -27,7 +27,7 @@ public class PlayerMover : DyingComponent
 
     private void Update()
     {
-        if (_isAlive)
+        if (IsAlive)
         {
             _velosity = _rigidBody.linearVelocity;
             Speed = _inputReader.XSpedRaw * _speed;

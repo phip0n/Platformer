@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34227b35421e67d44b7b1650f6cdfc41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
+  _maxPoints: 50
   _teamID: 1
   _dyingComponents:
   - {fileID: 7968165333189504728}
@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8800433825cfe2f4484331c1904da58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 4323621117373774611}
   _speed: 2
   _minDistanseSqr: 0.1
   _rotator: {fileID: 8189718342120004068}
@@ -433,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2723b77bc652e48b8af94642e7c9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 4323621117373774611}
   _animator: {fileID: 6661559985024297895}
 --- !u!1 &7529381641854528227
 GameObject:
@@ -515,6 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20226d26dacbe754f87244535d4b311a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 4323621117373774611}
   _teamID: 1
   _damage: 10
   _delay: 1
@@ -636,11 +639,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3792584513782513853, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.050000004
+      value: 0.057
       objectReference: {fileID: 0}
     - target: {fileID: 3792584513782513853, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.34499985
+      value: 0.432
       objectReference: {fileID: 0}
     - target: {fileID: 3792584513782513853, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -704,7 +707,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 279759201522043506, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4143222623209650277}
+      addedObject: {fileID: 1183452199393078708}
     - targetCorrespondingSourceObject: {fileID: 279759201522043506, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 565731015650526690}
@@ -714,7 +717,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 279759201522043506, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
   m_PrefabInstance: {fileID: 5827240798081592026}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4143222623209650277
+--- !u!114 &1183452199393078708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -723,10 +726,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5998622231915094184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2447f480968998144b7a406e95a80fc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 563eb72a2ae473d498afac802f567875, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SliderDisplay
-  health: {fileID: 4323621117373774611}
+  m_EditorClassIdentifier: Assembly-CSharp::SmoothSliderDisplay
+  Health: {fileID: 4323621117373774611}
+  _changeSpeed: 1
 --- !u!223 &565731015650526690
 Canvas:
   m_ObjectHideFlags: 0

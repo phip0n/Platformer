@@ -2,10 +2,21 @@ using UnityEngine;
 
 public class DyingComponent : MonoBehaviour
 {
-    protected bool _isAlive = true;
+    [SerializeField] private Health _health;
+    protected bool IsAlive = true;
+
+    private void OnEnable()
+    {
+        _health.Dying += StartDying;
+    }
+
+    private void OnDisable()
+    {
+        _health.Dying -= StartDying;
+    }
 
     public virtual void StartDying()
     {
-        _isAlive = false;
+        IsAlive = false;
     }
 }

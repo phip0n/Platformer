@@ -9,7 +9,7 @@ public class PlayerAnimator : DyingComponent
 
     private void Update()
     {
-        if (_isAlive && _animator != null)
+        if (IsAlive && _animator != null)
         {
             if (_groundSensor != null)
                 _animator.SetBool(PlayerAnimatorData.IsFallingID, !_groundSensor.IsOnGround);

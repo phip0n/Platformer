@@ -21,7 +21,7 @@ public class Damager: DyingComponent
         bool isAttacking = false;
         Collider2D[] _targets;
 
-        if (_isAlive && _isReady)
+        if (IsAlive && _isReady)
         {
             _targets = Physics2D.OverlapCircleAll(transform.position, _range);
             _isReady = false;

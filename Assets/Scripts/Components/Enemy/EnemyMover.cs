@@ -18,13 +18,13 @@ public class EnemyMover : DyingComponent
 
     private void FixedUpdate()
     {
-        if (_isAlive)
+        if (IsAlive)
             _rigidBody.linearVelocity = _velocity;
     }
 
     private void Update()
     {
-        if (_isAlive)
+        if (IsAlive)
             Move();
     }
 
