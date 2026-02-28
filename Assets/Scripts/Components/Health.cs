@@ -5,13 +5,11 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _maxPoints = 50;
-    [SerializeField] private int _teamID;
 
     private bool _isAlive = true;
 
     public int MaxPoints => _maxPoints;
     public int Points { get; private set; }
-    public int TeamID => _teamID;
 
     public event Action HealthChanged;
     public event Action Dying;

@@ -9,20 +9,20 @@ public class EnemyDamager : DyingComponent
     [SerializeField] private float _delay = 1;
 
     private bool _isReady = true;
-    private List<Health> _targets;
+    private List<Target> _targets;
     private WaitForSeconds _delayTime;
 
     private void Awake()
     {
         _delayTime = new WaitForSeconds(_delay);
-        _targets = new List<Health>();
+        _targets = new List<Target>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Health>(out Health hp) && hp.TeamID != _teamID)
+        if (collision.TryGetComponent<Target>(out Target target) && target.TeamID != _teamID)
         {
-            _targets.Add(hp);
+            _targets.Add(target);
 
             if (_isReady)
                 Attack();
@@ -31,17 +31,17 @@ public class EnemyDamager : DyingComponent
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Health>(out Health hp))
+        if (collision.TryGetComponent<Target>(out Target target))
         {
-            _targets.Remove(hp);
+            _targets.Remove(target);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Health>(out Health hp))
+        if (collision.gameObject.TryGetComponent<Target>(out Target target))
         {
-            _targets.Remove(hp); ;
+            _targets.Remove(target); ;
         }
     }
 
@@ -51,9 +51,9 @@ public class EnemyDamager : DyingComponent
         {
             _isReady = false;
 
-            foreach (Health hp in _targets)
+            foreach (Target target in _targets)
             {
-                hp.TakeDamage(_damage);
+                target.TakeDamage(_damage);
             }
 
             StartCoroutine(RechargeAttack());

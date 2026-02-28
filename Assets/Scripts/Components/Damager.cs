@@ -19,18 +19,18 @@ public class Damager: DyingComponent
     public bool TryAttack()
     {
         bool isAttacking = false;
-        Collider2D[] _targets;
+        Collider2D[] colliders;
 
         if (IsAlive && _isReady)
         {
-            _targets = Physics2D.OverlapCircleAll(transform.position, _range);
+            colliders = Physics2D.OverlapCircleAll(transform.position, _range);
             _isReady = false;
             isAttacking = true;
 
-            foreach (Collider2D target in _targets)
+            foreach (Collider2D collider in colliders)
             {
-                if (target.TryGetComponent(out Health health) && health.TeamID != _teamID)
-                    health.TakeDamage(_damage);
+                if (collider.TryGetComponent(out Target target) && target.TeamID != _teamID)
+                    target.TakeDamage(_damage);
             }
 
             StartCoroutine(RechargeAttack());

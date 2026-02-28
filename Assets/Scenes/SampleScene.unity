@@ -113523,6 +113523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 834315156}
   - component: {fileID: 834315159}
+  - component: {fileID: 834315166}
   - component: {fileID: 834315162}
   - component: {fileID: 834315164}
   - component: {fileID: 834315163}
@@ -113599,7 +113600,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxPoints: 50
-  _teamID: 0
 --- !u!114 &834315163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113642,6 +113642,19 @@ MonoBehaviour:
   _damager: {fileID: 1673981376}
   _inputReader: {fileID: 1542627283}
   _animator: {fileID: 1602381882}
+--- !u!114 &834315166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834315155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90f6730b70d6f1419f3ff6aee1279b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Target
+  _teamID: 0
 --- !u!1 &873714676
 GameObject:
   m_ObjectHideFlags: 0
