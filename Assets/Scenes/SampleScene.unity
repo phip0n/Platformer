@@ -113848,9 +113848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040af8592cbea2047bba579302e34f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VampireActivator
-  _rechargeRate: 0.2
-  _maxCharge: 1
-  _chargeConsumptionRate: 0.2
+  _rechargeRate: 1.5
+  _maxCharge: 6
+  _chargeConsumptionRate: 1
   _vampiricRenderer: {fileID: 485035662}
   _damager: {fileID: 485035663}
 --- !u!1 &873714676
@@ -114844,8 +114844,8 @@ MonoBehaviour:
   _slider: {fileID: 1573957481}
   sliderFillImage: {fileID: 41984966}
   _readyColor: {r: 0.5568628, g: 1, b: 0, a: 1}
-  _castColor: {r: 1, g: 0, b: 0, a: 1}
-  _rechargeColor: {r: 0.8387097, g: 1, b: 0, a: 1}
+  _castColor: {r: 1, g: 0.28068668, b: 0, a: 1}
+  _rechargeColor: {r: 1, g: 0.94998837, b: 0, a: 1}
 --- !u!1 &1602381868
 GameObject:
   m_ObjectHideFlags: 0
