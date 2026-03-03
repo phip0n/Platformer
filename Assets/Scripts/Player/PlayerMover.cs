@@ -41,7 +41,7 @@ public class PlayerMover : DyingComponent
         }
     }
 
-    public override void StartDying()
+    protected override void StartDying()
     {
         base.StartDying();
         _velosity = Physics2D.gravity * Time.deltaTime;

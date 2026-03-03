@@ -25,7 +25,7 @@ public class PlayerAnimator : DyingComponent
             _animator.SetTrigger(PlayerAnimatorData.AttackID);
     }
 
-    public override void StartDying()
+    protected override void StartDying()
     {
         base.StartDying();
 

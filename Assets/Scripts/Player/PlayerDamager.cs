@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Damager: DyingComponent
+public class PlayerDamager: MonoBehaviour
 {
     [SerializeField] private int _teamID;
     [SerializeField] private int _damage = 10;
@@ -21,7 +21,7 @@ public class Damager: DyingComponent
         bool isAttacking = false;
         Collider2D[] colliders;
 
-        if (IsAlive && _isReady)
+        if (_isReady)
         {
             colliders = Physics2D.OverlapCircleAll(transform.position, _range);
             _isReady = false;

@@ -9,16 +9,16 @@ public class SmoothSliderDisplay : SliderDisplay
     private float _displayedValue;
     private bool _isChanging = false;
 
-    protected override void Init()
+    public override void Init(float value)
     {
-        _value = Health.Points / Health.MaxPoints;
-        _displayedValue = _value;
-        _slider.value = _displayedValue;
+        _value = value;
+        _displayedValue = value;
+        _slider.value = value;
     }
 
-    protected override void Display()
+    public override void Display(float value)
     {
-        _value = (float)Health.Points / Health.MaxPoints;
+        _value = value;
 
         if (_isChanging == false)
         {

@@ -4,9 +4,10 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Health _health;
     [SerializeField] private Wallet _wallet;
-    [SerializeField] private Damager _damager;
+    [SerializeField] private PlayerDamager _damager;
     [SerializeField] private InputReader _inputReader;
     [SerializeField] private PlayerAnimator _animator;
+    [SerializeField] private VampireActivator _vampireActivator;
 
     private void Update()
     {
@@ -16,6 +17,11 @@ public class Player : MonoBehaviour
 
             if (isAttacking)
                 _animator.Attack();
+        }
+
+        if (_inputReader.IsSkillActive)
+        {
+            _vampireActivator.TryStartCast();
         }
     }
 

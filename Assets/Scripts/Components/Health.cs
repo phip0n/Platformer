@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     public int MaxPoints => _maxPoints;
     public int Points { get; private set; }
 
-    public event Action HealthChanged;
+    public event Action ValueChanged;
     public event Action Dying;
 
     public void Awake()
@@ -23,10 +23,8 @@ public class Health : MonoBehaviour
         if (points > 0)
         {
             Points += points;
-
-            points = Math.Clamp(points, 0, _maxPoints);
-
-            HealthChanged?.Invoke();
+            Points = Math.Clamp(Points, 0, _maxPoints);
+            ValueChanged?.Invoke();
         }
     }
 
@@ -46,7 +44,7 @@ public class Health : MonoBehaviour
                 Dying?.Invoke();
             }
 
-            HealthChanged?.Invoke();
+            ValueChanged?.Invoke();
         }
     }
 

@@ -526,9 +526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20226d26dacbe754f87244535d4b311a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 4323621117373774611}
+  Damage: 10
   _teamID: 1
-  _damage: 10
   _delay: 1
 --- !u!1001 &5827240798081592026
 PrefabInstance:
@@ -716,6 +715,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 279759201522043506, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 7718211692135542478}
+    - targetCorrespondingSourceObject: {fileID: 279759201522043506, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1183452199393078708}
     - targetCorrespondingSourceObject: {fileID: 279759201522043506, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
       insertIndex: -1
@@ -726,6 +728,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 279759201522043506, guid: 4e49fef27b1058041b50f7f2faec2a3e, type: 3}
   m_PrefabInstance: {fileID: 5827240798081592026}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7718211692135542478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998622231915094184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca08e6a593b41941bc5dbc875927168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthDisplay
+  _health: {fileID: 4323621117373774611}
 --- !u!114 &1183452199393078708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563eb72a2ae473d498afac802f567875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SmoothSliderDisplay
-  Health: {fileID: 4323621117373774611}
   _changeSpeed: 1
 --- !u!223 &565731015650526690
 Canvas:

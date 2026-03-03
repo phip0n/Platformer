@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent (typeof(Slider))]
-public class SliderDisplay : HealthDisplay
+public class SliderDisplay : MonoBehaviour
 {
     protected Slider _slider;
 
@@ -11,18 +11,13 @@ public class SliderDisplay : HealthDisplay
         _slider = GetComponent<Slider>();
     }
 
-    private void Start()
+    public virtual void Init(float value)
     {
-        Init();
+        _slider.value = value;
     }
 
-    protected virtual void Init()
+    public virtual void Display(float value)
     {
-        Display();
-    }
-
-    protected override void Display()
-    {
-        _slider.value = (float)Health.Points / Health.MaxPoints;
+        _slider.value = value;
     }
 }

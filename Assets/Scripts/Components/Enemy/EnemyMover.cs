@@ -33,7 +33,7 @@ public class EnemyMover : DyingComponent
         _target = target;
     }
 
-    public override void StartDying()
+    protected override void StartDying()
     {
         base.StartDying();
     }

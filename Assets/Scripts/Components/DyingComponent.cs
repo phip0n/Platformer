@@ -15,7 +15,7 @@ public class DyingComponent : MonoBehaviour
         _health.Dying -= StartDying;
     }
 
-    public virtual void StartDying()
+    protected virtual void StartDying()
     {
         IsAlive = false;
     }
